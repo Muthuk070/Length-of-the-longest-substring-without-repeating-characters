@@ -1,0 +1,61 @@
+
+public class unit5 {
+	
+
+	static ArrayList<Integer> y =new ArrayList();
+	static ArrayList<String> y1 =new ArrayList();
+	static HashMap<Integer,String> l=new HashMap();
+	static int ca=0;
+	static int max=0;
+	
+	public static void call(String e) {
+		
+		 HashMap<Character,Integer> n=new HashMap();
+		    for(int i=0;i<=e.length()-1;i++) {
+		    	if(n.containsKey(e.charAt(i))) {
+		    		break;
+		    	}else {
+		    		n.put(e.charAt(i), 1);
+		    	}
+		    }
+		    int j=n.size();
+		    ca=j;
+		    if(j==e.length()) {
+		    	l.put(e.length(),e);
+		    }
+		    max=Math.max(max,j);
+	}
+
+	public static void main(String[] args) {
+	
+		
+		String r="GEEKSFORGEEKS";
+		HashSet<Character> n =new HashSet();
+		for(int y=0;y<=r.length()-1;y++) {
+			n.add(r.charAt(y));
+		}
+		if(n.size()==r.length()) {
+			System.out.println(r);
+			System.out.println(r.length());
+			System.exit(8);
+		}
+		
+		for(int i=0;i<r.length()-1;i++) {
+			for(int j=i+1;j<=r.length()-1;j++) {
+				String h2=r.substring(i,j);
+				call(h2);
+			}
+		}
+
+		
+		String f=l.get(max);
+		
+		System.out.println(f);
+		System.out.println(max);
+	}
+}
+
+
+OUTPUT:
+KSFORGE
+7
